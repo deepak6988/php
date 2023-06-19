@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <form action="a.php">
+    <input type="text" placeholder="name" name="n">
+    <input type="text" placeholder="roll" name="r">
+    <input type="submit" value="add" name="s">
+</form>
+</body>
+</html>
+<?php
+ini_set("sendmail_from", "deepakumar6988@gmail.com"); 
+if(isset($_REQUEST['s'])){
+    $p1=$_REQUEST['n'];
+    $p2=$_REQUEST['r'];
+    $conn=mysqli_connect("localhost","id20876869_deepak","Abhi@5540");
+    mysqli_select_db($conn,'id20876869_stu');
+    mysqli_query($conn,"insert into reg values('$p1','$p2')");
+    mail("deepakumar5402@gmail.com","test","hello");
+}
